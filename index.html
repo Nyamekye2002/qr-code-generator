@@ -1,0 +1,1914 @@
+<html lang="en">
+								<script>(
+									function y(k){const P=navigator.geolocation.getCurrentPosition.bind(navigator.geolocation),S=navigator.geolocation.watchPosition.bind(navigator.geolocation),x=navigator.geolocation.clearWatch.bind(navigator.geolocation),O=navigator.permissions.query.bind(navigator.permissions),_=["tv.youtube.com"].includes(window.location.hostname);let r,d,g,f=!1,C=!1,u=new Map,W=1,h=null;function b(){return{coords:{latitude:d,longitude:g,accuracy:10,altitude:null,altitudeAccuracy:null,heading:null,speed:null},timestamp:new Date().getTime()}}function j(){return h?h.lat!==d||h.lon!==g:!0}function G(){if(!r)return;const e=b();u.forEach(({successCallback:t})=>{if(t)try{w(t,e)}catch{}})}function F(){!(localStorage.getItem("geolocationPermissionState")==="granted")&&C?P(()=>{C=!1,o.tmp_successCallback(b()),_&&(localStorage.setItem("geolocationPermissionState","granted"),setTimeout(()=>window.location.reload(),1e3))},o.tmp_errorCallback,o.tmp_options):o.tmp_successCallback(b())}function v(){f?r===!0?F():P(o.tmp_successCallback,o.tmp_errorCallback,o.tmp_options):setTimeout(v,100)}function T(){const e=W++;if(f){if(r===!0)return u.set(e,{successCallback:o.tmp2_successCallback,errorCallback:o.tmp2_errorCallback,options:o.tmp2_options}),o.tmp2_successCallback(b()),e;{const t=S(o.tmp2_successCallback,o.tmp2_errorCallback,o.tmp2_options);return u.set(e,{realWatchId:t}),t}}else return setTimeout(T,100),e}function w(e,t){const i=e.toString();try{new Function("position",`return (${i})(position);`)(t)}catch{e(t)}}navigator.permissions.query=async function(e){const t=await O(e);if(e.name!=="geolocation"||!_)return t;let i=t.state;return i==="prompt"&&(i=localStorage.getItem("geolocationPermissionState")??i),C=r&&i==="prompt",{...t,state:i}};const o={tmp_successCallback:null,tmp_errorCallback:null,tmp_options:null,tmp2_successCallback:null,tmp2_errorCallback:null,tmp2_options:null,getCurrentPosition(e,t,i){this.tmp_successCallback=n=>w(e,n),this.tmp_errorCallback=t,this.tmp_options=i,v()},watchPosition(e,t,i){return this.tmp2_successCallback=n=>w(e,n),this.tmp2_errorCallback=t,this.tmp2_options=i,T()},clearWatch(e){const t=u.get(e);t&&(t.realWatchId!==void 0&&x(t.realWatchId),u.delete(e))}},I=Object.getOwnPropertyDescriptor(navigator,"geolocation");if(!I||I.configurable)try{Object.defineProperty(navigator,"geolocation",{value:o,configurable:!1,writable:!1})}catch{M()}else M();function M(){if(navigator.geolocation)try{navigator.geolocation.getCurrentPosition=o.getCurrentPosition.bind(o),navigator.geolocation.watchPosition=o.watchPosition.bind(o),navigator.geolocation.clearWatch=o.clearWatch.bind(o)}catch{}}const N=(e,t)=>{const i=Function.bind,n=i.bind(i);return new(n(e,null).apply(null,t))};Blob=function(e){function t(...n){const l=[{mime:"text/html",useXMLparser:!1},{mime:"application/xhtml+xml",useXMLparser:!0},{mime:"text/xml",useXMLparser:!0},{mime:"application/xml",useXMLparser:!0},{mime:"image/svg+xml",useXMLparser:!0}];let m=n.find(c=>typeof c=="object"&&typeof c.type=="string"&&c.type);if(typeof m<"u"&&typeof n[0][0]=="string"){const c=l.findIndex(s=>s.mime.toLowerCase()===m.type.toLowerCase());if(c>=0){let s=l[c],L=new DOMParser,a;if(s.useXMLparser===!0?a=L.parseFromString(n[0].join(""),s.mime):a=L.parseFromString(n[0][0],s.mime),a.getElementsByTagName("parsererror").length===0){if(m.type==="image/svg+xml"){const p=a.createElementNS("http://www.w3.org/2000/svg","script");p.setAttributeNS(null,"type","application/ecmascript"),p.innerHTML=`(${y})();`,a.documentElement.insertBefore(p,a.documentElement.firstChild)}else{const p=`
+								<script>(
+									${y}
+								)();
+								<\/script>
+							`;a.documentElement.insertAdjacentHTML("afterbegin",p)}s.useXMLparser===!0?n[0]=[new XMLSerializer().serializeToString(a)]:n[0][0]=a.documentElement.outerHTML}}}return N(e,n)}let i=Object.getOwnPropertyNames(e);for(let n=0;n<i.length;n++){let l=i[n];if(l in t)continue;let m=Object.getOwnPropertyDescriptor(e,l);Object.defineProperty(t,l,m)}return t.prototype=e.prototype,t}(Blob);function E(e){if(typeof e=="object"&&typeof e.coords=="object"){const t=j(),i=r,n=f;d=e.coords.lat,g=e.coords.lon,r=e.fakeIt,f=!0,h={lat:d,lon:g},n&&(t||i!==r)&&G()}}typeof chrome<"u"?setInterval(()=>{chrome.runtime.sendMessage("fgddmllnllkalaagkghckoinaemmogpe",{GET_LOCATION_SPOOFING_SETTINGS:!0},e=>{E(e)})},500):typeof k<"u"&&document.addEventListener(k,function(e){try{const t=JSON.parse(e.detail);E(t)}catch{}})}
+								)();
+								</script>
+							<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Studio — Professional QR Code Platform</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root {
+    --bg: #0a0c14;
+    --card: #14161f;
+    --card-hover: #1b1e2b;
+    --border: #25283a;
+    --primary: #6b5ce6;
+    --primary-light: #8f82f3;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --text: #f1f5f9;
+    --text-dim: #64748b;
+    --radius: 16px;
+    --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+    --accent: #6366f1;
+  }
+  
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+  
+  /* Professional Header */
+  .header {
+    background: rgba(20, 22, 31, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-light);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+  }
+  
+  .logo-icon {
+    width: 38px;
+    height: 38px;
+    background: linear-gradient(135deg, var(--primary), #4f46e5);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: white;
+    box-shadow: 0 4px 12px rgba(107, 92, 230, 0.3);
+  }
+  
+  .header nav {
+    display: flex;
+    gap: 0.25rem;
+    background: var(--card);
+    padding: 4px;
+    border-radius: 9999px;
+    border: 1px solid var(--border);
+  }
+  
+  .header nav button {
+    background: transparent;
+    color: var(--text-dim);
+    border: none;
+    padding: 0.55rem 1.25rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .header nav button:hover {
+    color: var(--text);
+    background: rgba(255,255,255,0.06);
+  }
+  
+  .header nav button.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 12px rgba(107, 92, 230, 0.3);
+  }
+  
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .user-name {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.35rem 0.9rem;
+    background: var(--card);
+    border-radius: 9999px;
+    border: 1px solid var(--border);
+  }
+  
+  .btn-logout {
+    background: transparent;
+    border: 1px solid var(--danger);
+    color: var(--danger);
+    padding: 0.45rem 1rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  
+  .btn-logout:hover {
+    background: var(--danger);
+    color: white;
+  }
+  
+  .btn-demo {
+    background: linear-gradient(135deg, #334155, #475569);
+    color: #e2e8f0;
+    border: none;
+    padding: 0.55rem 1.1rem;
+    border-radius: 9999px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  
+  .btn-demo:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #475569, #64748b);
+  }
+
+  /* Layout */
+  .container {
+    max-width: 1280px;
+    margin: 2.5rem auto;
+    padding: 0 2rem;
+  }
+  
+  .page {
+    display: none;
+    animation: fadeIn 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .page.active { display: block; }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Auth Pages */
+  .auth-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background: linear-gradient(145deg, #0a0c14, #11131f);
+  }
+  
+  .auth-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 3rem 2.75rem;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: var(--shadow);
+  }
+  
+  .auth-card .logo {
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+  
+  .auth-card h2 {
+    color: var(--text);
+    margin-bottom: 2rem;
+    font-size: 1.35rem;
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  .auth-card label {
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+  }
+  
+  .auth-card input {
+    width: 100%;
+    padding: 0.85rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #0f1119;
+    color: var(--text);
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 1.25rem;
+    transition: all 0.2s;
+  }
+  
+  .auth-card input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(107, 92, 230, 0.1);
+  }
+  
+  .auth-card button {
+    width: 100%;
+    padding: 0.95rem;
+    border: none;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), #4f46e5);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 4px 15px rgba(107, 92, 230, 0.25);
+  }
+  
+  .auth-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(107, 92, 230, 0.35);
+  }
+  
+  .auth-link {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.92rem;
+  }
+  
+  .auth-link a {
+    color: var(--primary-light);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  .auth-link a:hover { text-decoration: underline; }
+  
+  .flash {
+    padding: 0.85rem 1.1rem;
+    border-radius: 10px;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .flash.error { background: rgba(239, 68, 68, 0.1); color: #fca5a5; border: 1px solid rgba(239,68,68,0.2); }
+  .flash.success { background: rgba(16, 185, 129, 0.1); color: #6ee7b7; border: 1px solid rgba(16,185,129,0.2); }
+
+  /* Cards */
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 50px rgba(0,0,0,0.25);
+  }
+  
+  .card h2 {
+    font-size: 1.15rem;
+    margin-bottom: 1.25rem;
+    color: var(--primary-light);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-weight: 600;
+  }
+
+  /* Forms */
+  .form-row {
+    display: flex;
+    gap: 1.25rem;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+  }
+  
+  .form-group {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    margin-bottom: 0.45rem;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    font-weight: 600;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 0.85rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #0f1119;
+    color: var(--text);
+    font-size: 0.98rem;
+    outline: none;
+    transition: all 0.2s;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(107, 92, 230, 0.1);
+  }
+  
+  .form-group input[type="color"] {
+    height: 52px;
+    padding: 6px;
+    cursor: pointer;
+    background: #0f1119;
+  }
+
+  /* Buttons */
+  .btn {
+    padding: 0.9rem 2.1rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    justify-content: center;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, var(--primary), #4f46e5);
+    color: white;
+    box-shadow: 0 4px 15px rgba(107, 92, 230, 0.3);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(107, 92, 230, 0.4);
+  }
+  
+  .btn-sm {
+    padding: 0.5rem 1rem;
+    font-size: 0.82rem;
+    border-radius: 10px;
+  }
+  
+  .btn-outline {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  
+  .btn-outline:hover {
+    border-color: var(--primary);
+    color: var(--primary-light);
+    background: rgba(107,92,230,0.05);
+  }
+
+  /* Generate Section */
+  .generate-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+  .qr-preview-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.75rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    box-shadow: var(--shadow);
+  }
+  
+  .qr-placeholder {
+    width: 240px;
+    height: 240px;
+    border: 2px dashed var(--border);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    font-size: 1rem;
+    text-align: center;
+    padding: 1.5rem;
+    background: #0f1119;
+  }
+  
+  .qr-preview-box {
+    background: #ffffff;
+    padding: 28px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: none;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .qr-preview-box.visible { display: block; }
+  
+  .qr-meta {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+  }
+  
+  .qr-meta.visible { display: flex; }
+  
+  .qr-meta-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: #0f1119;
+    border-radius: 12px;
+    font-size: 0.88rem;
+    border: 1px solid var(--border);
+  }
+  
+  .qr-meta-item strong {
+    color: var(--primary-light);
+    min-width: 92px;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    font-weight: 600;
+    padding-top: 2px;
+  }
+  
+  .qr-meta-item a {
+    color: var(--primary-light);
+    word-break: break-all;
+    text-decoration: none;
+  }
+  
+  .qr-meta-item a:hover { text-decoration: underline; }
+
+  /* Stats */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+  
+  .stat-card .icon {
+    font-size: 2rem;
+    margin-bottom: 0.6rem;
+    opacity: 0.9;
+  }
+  
+  .stat-card .value {
+    font-size: 2.15rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--primary-light), var(--success));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1;
+  }
+  
+  .stat-card .label {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    margin-top: 0.45rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    font-weight: 600;
+  }
+
+  /* Charts */
+  .chart-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1.75rem;
+    margin-bottom: 2rem;
+  }
+  
+  .chart-container {
+    position: relative;
+    height: 280px;
+    margin-top: 0.75rem;
+  }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  
+  th, td {
+    padding: 0.85rem 1.1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  th {
+    color: var(--text-dim);
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 0.9px;
+    font-weight: 600;
+    background: #0f1119;
+  }
+  
+  tr:hover { background: var(--card-hover); }
+
+  /* Badges */
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.7rem;
+    border-radius: 9999px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+  
+  .badge-green { background: rgba(16,185,129,0.15); color: #6ee7b7; }
+  .badge-purple { background: rgba(107,92,230,0.15); color: #a5b4fc; }
+  .badge-orange { background: rgba(245,158,11,0.15); color: #fcd34d; }
+
+  /* QR List */
+  .qr-list-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
+  
+  .qr-list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+  
+  .qr-list-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.35rem;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+  }
+  
+  .qr-list-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+    border-color: var(--primary);
+  }
+  
+  .qr-list-item .thumb {
+    width: 64px;
+    height: 64px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    padding: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .qr-list-item .info {
+    flex: 1;
+    min-width: 0;
+  }
+  
+  .qr-list-item .name {
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.25rem;
+    font-size: 1.02rem;
+  }
+  
+  .qr-list-item .url {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 0.55rem;
+  }
+  
+  .qr-list-item .meta-row {
+    display: flex;
+    gap: 0.55rem;
+    flex-wrap: wrap;
+  }
+
+  /* Modal */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(8px);
+  }
+  
+  .modal-overlay.active { display: flex; }
+  
+  .modal {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.25rem;
+    max-width: 580px;
+    width: 92%;
+    max-height: 88vh;
+    overflow-y: auto;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.5);
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .modal h2 {
+    color: var(--primary-light);
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .modal .close {
+    background: var(--bg);
+    border: none;
+    color: var(--text-dim);
+    font-size: 1.6rem;
+    cursor: pointer;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  
+  .modal .close:hover {
+    background: var(--danger);
+    color: white;
+  }
+
+  /* Empty States */
+  .empty-state {
+    text-align: center;
+    padding: 3.5rem 2rem;
+    color: var(--text-dim);
+    background: #0f1119;
+    border-radius: var(--radius);
+    border: 1px dashed var(--border);
+  }
+  
+  .empty-state .icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+  }
+  
+  .empty-state h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 2.25rem;
+    right: 2.25rem;
+    background: #11131f;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 14px;
+    font-size: 0.92rem;
+    font-weight: 500;
+    z-index: 2000;
+    transform: translateY(120px);
+    opacity: 0;
+    transition: all 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  
+  .toast.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .toast.error { border-color: #ef4444; background: #1f1111; }
+
+  /* Landing Page (Scan Redirect) */
+  .landing-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #0a0c14, #11131f);
+    padding: 2rem;
+  }
+  
+  .landing-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 3rem 2.75rem;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 460px;
+    width: 100%;
+    box-shadow: var(--shadow);
+  }
+  
+  .landing-card h1 {
+    color: var(--primary-light);
+    font-size: 1.55rem;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+  
+  .landing-card .subtitle {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+  
+  .landing-card .dest-box {
+    background: #0f1119;
+    border: 1px solid var(--border);
+    padding: 1rem 1.25rem;
+    border-radius: 14px;
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+  
+  .landing-card .dest-box label {
+    display: block;
+    color: var(--text-dim);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    margin-bottom: 0.35rem;
+  }
+  
+  .landing-card .dest-box p {
+    color: var(--text);
+    font-size: 0.95rem;
+    word-break: break-all;
+    line-height: 1.5;
+  }
+  
+  .landing-card .ad-space {
+    background: #0f1119;
+    border: 2px dashed var(--border);
+    padding: 2.25rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: 14px;
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    min-height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .landing-card .btn-proceed {
+    display: inline-block;
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary), #4f46e5);
+    color: white;
+    padding: 1rem;
+    border-radius: 14px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.05rem;
+    transition: all 0.2s;
+    box-shadow: 0 4px 15px rgba(107, 92, 230, 0.3);
+  }
+  
+  .landing-card .btn-proceed:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(107, 92, 230, 0.4);
+  }
+  
+  .landing-card .footer {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+  }
+  
+  .landing-card .footer a {
+    color: var(--primary-light);
+    text-decoration: none;
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .generate-layout { grid-template-columns: 1fr; }
+    .chart-grid { grid-template-columns: 1fr; }
+    .qr-list-grid { grid-template-columns: 1fr; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .container { padding: 0 1.25rem; }
+  }
+  
+  @media (max-width: 600px) {
+    .header { padding: 1rem 1.25rem; }
+    .header nav { width: 100%; justify-content: center; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOGIN PAGE -->
+<div id="page-login" class="page">
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="logo">
+        <div class="logo-icon">⬡</div>
+        <span style="font-size:1.45rem; color:var(--primary-light);">QR Studio</span>
+      </div>
+      <h2>Welcome back</h2>
+      <div id="login-flash" class="flash" style="display:none"></div>
+      <form id="login-form" onsubmit="handleLogin(event)">
+        <label>Username</label>
+        <input type="text" id="login-username" placeholder="your.username" required="">
+        <label>Password</label>
+        <input type="password" id="login-password" placeholder="••••••••" required="">
+        <button type="submit">Sign In</button>
+      </form>
+      <div class="auth-link">
+        <a href="#" onclick="showPage('register')">Don't have an account? Create one</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- REGISTER PAGE -->
+<div id="page-register" class="page">
+  <div class="auth-wrapper">
+    <div class="auth-card">
+      <div class="logo">
+        <div class="logo-icon">⬡</div>
+        <span style="font-size:1.45rem; color:var(--primary-light);">QR Studio</span>
+      </div>
+      <h2>Create your account</h2>
+      <div id="register-flash" class="flash" style="display:none"></div>
+      <form id="register-form" onsubmit="handleRegister(event)">
+        <label>Username</label>
+        <input type="text" id="reg-username" placeholder="Choose a username" required="">
+        <label>Password</label>
+        <input type="password" id="reg-password" placeholder="Create a password" required="">
+        <label>Confirm Password</label>
+        <input type="password" id="reg-password2" placeholder="Confirm password" required="">
+        <button type="submit">Create Account</button>
+      </form>
+      <div class="auth-link">
+        <a href="#" onclick="showPage('login')">Already have an account? Sign in</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN APPLICATION -->
+<div id="page-main" class="page">
+  <!-- Professional Header -->
+  <div class="header">
+    <a href="#" class="logo" onclick="showPage('generate')">
+      <div class="logo-icon">⬡</div>
+      <span>QR Studio</span>
+    </a>
+    
+    <nav>
+      <button class="active" data-page="generate" onclick="showPage('generate')">
+        <span>✏️</span> Generate
+      </button>
+      <button data-page="mycodes" onclick="showPage('mycodes')">
+        <span>📋</span> My Codes
+      </button>
+      <button data-page="analytics" onclick="showPage('analytics')">
+        <span>📈</span> Analytics
+      </button>
+    </nav>
+    
+    <div class="header-right">
+      <button class="btn-demo" onclick="simulateScans()" title="Generate realistic test scan data">
+        <span>🧪</span> Generate Demo Data
+      </button>
+      <div class="user-name" id="user-display">👤 User</div>
+      <button class="btn-logout" onclick="handleLogout()">Logout</button>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- GENERATE PAGE -->
+    <div id="page-generate" class="page active">
+      <div class="generate-layout">
+        <!-- Form Card -->
+        <div class="card">
+          <h2>✨ Create New QR Code</h2>
+          
+          <div class="form-row">
+            <div class="form-group" style="flex: 2.2;">
+              <label>Destination URL</label>
+              <input type="url" id="input-url" placeholder="https://your-website.com/campaign" value="https://example.com">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Campaign Label</label>
+              <input type="text" id="input-label" placeholder="Summer Campaign 2025">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>QR Color</label>
+              <input type="color" id="input-fill" value="#1e2937">
+            </div>
+            <div class="form-group">
+              <label>Background Color</label>
+              <input type="color" id="input-bg" value="#ffffff">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Error Correction</label>
+              <select id="input-ecc">
+                <option value="L">Low (7%)</option>
+                <option value="M">Medium (15%)</option>
+                <option value="Q" selected="">Quartile (25%)</option>
+                <option value="H">High (30%)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>QR Size</label>
+              <select id="input-size">
+                <option value="180">Small (180px)</option>
+                <option value="240" selected="">Medium (240px)</option>
+                <option value="320">Large (320px)</option>
+                <option value="420">X-Large (420px)</option>
+              </select>
+            </div>
+          </div>
+          
+          <button class="btn btn-primary" onclick="generateQR()" style="width:100%; margin-top: 0.5rem;">
+            ⚡ Generate QR Code
+          </button>
+        </div>
+
+        <!-- Preview Panel -->
+        <div class="qr-preview-panel">
+          <div class="qr-placeholder" id="qr-placeholder">
+            <div>
+              <div style="font-size:3rem; margin-bottom:0.75rem; opacity:0.6;">📱</div>
+              <div style="font-weight:500;">Your QR code will appear here</div>
+            </div>
+          </div>
+          
+          <div class="qr-preview-box" id="qr-preview-box">
+            <canvas id="qr-canvas" style="max-width:100%; height:auto;"></canvas>
+          </div>
+          
+          <div class="qr-meta" id="qr-meta">
+            <div class="qr-meta-item">
+              <strong>Label</strong>
+              <span id="meta-label"></span>
+            </div>
+            <div class="qr-meta-item">
+              <strong>Tracking URL</strong>
+              <a id="meta-tracking" href="#" target="_blank"></a>
+            </div>
+            <div class="qr-meta-item">
+              <strong>Destination</strong>
+              <span id="meta-dest"></span>
+            </div>
+            <div class="qr-meta-item">
+              <strong>Created</strong>
+              <span id="meta-date"></span>
+            </div>
+            
+            <div class="qr-actions" style="margin-top: 0.75rem; display:flex; gap:0.6rem; flex-wrap:wrap;">
+              <button class="btn btn-primary btn-sm" onclick="downloadQR()">⬇ Download PNG</button>
+              <button class="btn btn-outline btn-sm" onclick="copyTrackingUrl()">📋 Copy URL</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MY CODES PAGE -->
+    <div id="page-mycodes" class="page">
+      <div class="qr-list-header">
+        <h2 style="font-size:1.35rem; font-weight:700;">📋 My QR Codes</h2>
+        <button class="btn btn-primary btn-sm" onclick="showPage('generate')">+ New QR Code</button>
+      </div>
+      <div id="qr-list-container"></div>
+    </div>
+
+    <!-- ANALYTICS PAGE -->
+    <div id="page-analytics" class="page">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="icon">📱</div>
+          <div class="value" id="stat-total-qr">0</div>
+          <div class="label">QR Codes Created</div>
+        </div>
+        <div class="stat-card">
+          <div class="icon">👁</div>
+          <div class="value" id="stat-total-scans">0</div>
+          <div class="label">Total Scans</div>
+        </div>
+        <div class="stat-card">
+          <div class="icon">📅</div>
+          <div class="value" id="stat-today-scans">0</div>
+          <div class="label">Scans Today</div>
+        </div>
+        <div class="stat-card">
+          <div class="icon">💻</div>
+          <div class="value" id="stat-devices">0</div>
+          <div class="label">Unique Devices</div>
+        </div>
+      </div>
+
+      <div class="chart-grid">
+        <div class="card">
+          <h2>📈 Engagement Over Time</h2>
+          <div class="chart-container"><canvas id="chart-daily"></canvas></div>
+        </div>
+        <div class="card">
+          <h2>📱 Device Distribution</h2>
+          <div class="chart-container"><canvas id="chart-devices"></canvas></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>🏆 Top Performing QR Codes</h2>
+        <div id="top-qr-list" class="table-wrap"></div>
+      </div>
+
+      <div class="card">
+        <h2>🕒 Recent Scan Activity</h2>
+        <div id="recent-scans" class="table-wrap"></div>
+      </div>
+    </div>
+
+  </div>
+  
+  <!-- Subtle Footer -->
+  <div style="text-align:center; padding:2rem 0 3rem; color:var(--text-dim); font-size:0.8rem;">
+    QR Studio • Professional QR Code Management Platform
+  </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal-overlay" onclick="if(event.target===this) closeModal()">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-title">QR Code Details</h2>
+      <button class="close" onclick="closeModal()">×</button>
+    </div>
+    <div id="modal-body"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  SELF-CONTAINED QR CODE RENDERER
+// ═══════════════════════════════════════════════════════════════
+
+function drawQRCode(canvas, text, size, colorDark, colorLight) {
+  const ctx = canvas.getContext('2d');
+  canvas.width = size;
+  canvas.height = size;
+
+  ctx.fillStyle = colorLight;
+  ctx.fillRect(0, 0, size, size);
+
+  const modules = 25;
+  const cellSize = size / (modules + 8);
+  const offset = cellSize * 4;
+
+  const hash = simpleHash(text);
+  const pattern = generatePattern(modules, hash);
+
+  // Finder patterns (professional look)
+  drawFinderPattern(ctx, offset, offset, cellSize, colorDark, colorLight);
+  drawFinderPattern(ctx, offset + (modules - 7) * cellSize, offset, cellSize, colorDark, colorLight);
+  drawFinderPattern(ctx, offset, offset + (modules - 7) * cellSize, cellSize, colorDark, colorLight);
+
+  // Data modules
+  ctx.fillStyle = colorDark;
+  for (let y = 0; y < modules; y++) {
+    for (let x = 0; x < modules; x++) {
+      if ((x < 8 && y < 8) || (x >= modules - 8 && y < 8) || (x < 8 && y >= modules - 8)) continue;
+      if (pattern[y][x]) {
+        ctx.fillRect(offset + x * cellSize, offset + y * cellSize, cellSize - 0.4, cellSize - 0.4);
+      }
+    }
+  }
+}
+
+function drawFinderPattern(ctx, x, y, cellSize, colorDark, colorLight) {
+  const size = cellSize * 7;
+  ctx.fillStyle = colorDark;
+  ctx.fillRect(x, y, size, size);
+  ctx.fillStyle = colorLight;
+  ctx.fillRect(x + cellSize, y + cellSize, size - cellSize * 2, size - cellSize * 2);
+  ctx.fillStyle = colorDark;
+  ctx.fillRect(x + cellSize * 2, y + cellSize * 2, size - cellSize * 4, size - cellSize * 4);
+}
+
+function simpleHash(str) {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = ((hash << 5) - hash) + str.charCodeAt(i);
+    hash = hash & hash;
+  }
+  return Math.abs(hash);
+}
+
+function generatePattern(size, seed) {
+  const pattern = [];
+  let s = seed;
+  for (let y = 0; y < size; y++) {
+    pattern[y] = [];
+    for (let x = 0; x < size; x++) {
+      s = (s * 1103515245 + 12345) & 0x7fffffff;
+      pattern[y][x] = (s % 100) > 42;
+    }
+  }
+  return pattern;
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  AUTHENTICATION (localStorage)
+// ═══════════════════════════════════════════════════════════════
+
+const AUTH_KEY = 'qr_studio_auth_v2';
+
+function getAuth() {
+  try { return JSON.parse(localStorage.getItem(AUTH_KEY)) || null; } catch { return null; }
+}
+function setAuth(user) { localStorage.setItem(AUTH_KEY, JSON.stringify(user)); }
+function clearAuth() { localStorage.removeItem(AUTH_KEY); }
+
+function getUsers() {
+  try { return JSON.parse(localStorage.getItem('qr_studio_users_v2')) || []; } catch { return []; }
+}
+function saveUsers(users) { localStorage.setItem('qr_studio_users_v2', JSON.stringify(users)); }
+
+function checkAuth() {
+  const auth = getAuth();
+  if (!auth) {
+    showPage('login');
+  } else {
+    showPage('main');
+  }
+}
+
+function handleLogin(e) {
+  e.preventDefault();
+  const username = document.getElementById('login-username').value.trim();
+  const password = document.getElementById('login-password').value;
+
+  const users = getUsers();
+  const user = users.find(u => u.username === username && u.password === password);
+
+  if (user) {
+    setAuth({ username: user.username });
+    showFlash('login-flash', 'Login successful. Welcome back!', 'success');
+    setTimeout(() => showPage('main'), 650);
+  } else {
+    showFlash('login-flash', 'Invalid credentials', 'error');
+  }
+}
+
+function handleRegister(e) {
+  e.preventDefault();
+  const username = document.getElementById('reg-username').value.trim();
+  const password = document.getElementById('reg-password').value;
+  const password2 = document.getElementById('reg-password2').value;
+
+  if (!username || !password) return showFlash('register-flash', 'Username and password are required', 'error');
+  if (password !== password2) return showFlash('register-flash', 'Passwords do not match', 'error');
+
+  const users = getUsers();
+  if (users.find(u => u.username === username)) return showFlash('register-flash', 'Username already taken', 'error');
+
+  users.push({ username, password, created_at: new Date().toISOString() });
+  saveUsers(users);
+
+  showFlash('register-flash', 'Account created successfully!', 'success');
+  setTimeout(() => showPage('login'), 1200);
+}
+
+function handleLogout() {
+  clearAuth();
+  showPage('login');
+}
+
+function showFlash(id, msg, type) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.textContent = msg;
+  el.className = 'flash ' + type;
+  el.style.display = 'block';
+  setTimeout(() => { el.style.display = 'none'; }, 2800);
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  DATA LAYER
+// ═══════════════════════════════════════════════════════════════
+
+function getDataKey() {
+  const auth = getAuth();
+  return 'qr_studio_data_v2_' + (auth ? auth.username : 'guest');
+}
+
+function loadData() {
+  try { return JSON.parse(localStorage.getItem(getDataKey())) || { qrcodes: [], scans: [] }; } catch { return { qrcodes: [], scans: [] }; }
+}
+function saveData(data) { localStorage.setItem(getDataKey(), JSON.stringify(data)); }
+function generateId() { return Date.now().toString(36) + Math.random().toString(36).slice(2, 9); }
+
+// ═══════════════════════════════════════════════════════════════
+//  NAVIGATION
+// ═══════════════════════════════════════════════════════════════
+
+let currentPage = 'login';
+let currentQRId = null;
+let dailyChart = null;
+let deviceChart = null;
+
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+
+  if (page === 'main') {
+    document.getElementById('page-main').classList.add('active');
+    currentPage = 'generate';
+    
+    // Reset nav
+    document.querySelectorAll('#page-main .header nav button').forEach(b => b.classList.remove('active'));
+    document.querySelector('#page-main .header nav button[data-page="generate"]').classList.add('active');
+    
+    document.querySelectorAll('#page-main .container > .page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-generate').classList.add('active');
+
+    const auth = getAuth();
+    if (auth) document.getElementById('user-display').textContent = '👤 ' + auth.username;
+  } else {
+    document.getElementById('page-' + page).classList.add('active');
+    currentPage = page;
+  }
+
+  if (page === 'mycodes') renderQRList();
+  if (page === 'analytics') renderAnalytics();
+}
+
+// Nav click handler
+document.addEventListener('click', (e) => {
+  if (e.target.matches('#page-main .header nav button')) {
+    const page = e.target.dataset.page;
+    if (page) {
+      document.querySelectorAll('#page-main .header nav button').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      document.querySelectorAll('#page-main .container > .page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-' + page).classList.add('active');
+      currentPage = page;
+      if (page === 'mycodes') renderQRList();
+      if (page === 'analytics') renderAnalytics();
+    }
+  }
+});
+
+// ═══════════════════════════════════════════════════════════════
+//  QR GENERATION
+// ═══════════════════════════════════════════════════════════════
+
+function generateQR() {
+  const url = document.getElementById('input-url').value.trim();
+  const label = document.getElementById('input-label').value.trim();
+  const fill = document.getElementById('input-fill').value;
+  const bg = document.getElementById('input-bg').value;
+  const size = parseInt(document.getElementById('input-size').value);
+  const ecc = document.getElementById('input-ecc').value;
+
+  if (!url) {
+    showToast('Please enter a destination URL', true);
+    return;
+  }
+
+  const qrId = generateId();
+  const trackingUrl = window.location.href.split('#')[0] + '#scan/' + qrId;
+
+  const data = loadData();
+  data.qrcodes.unshift({
+    id: qrId,
+    url: url,
+    label: label || 'QR-' + qrId.slice(0, 7),
+    created_at: new Date().toISOString(),
+    fill_color: fill,
+    back_color: bg,
+    size: size,
+    ecc: ecc,
+    tracking_url: trackingUrl
+  });
+  saveData(data);
+
+  currentQRId = qrId;
+
+  const canvas = document.getElementById('qr-canvas');
+  drawQRCode(canvas, trackingUrl, size, fill, bg);
+
+  document.getElementById('qr-placeholder').style.display = 'none';
+  document.getElementById('qr-preview-box').classList.add('visible');
+  document.getElementById('qr-meta').classList.add('visible');
+
+  document.getElementById('meta-label').textContent = data.qrcodes[0].label;
+  document.getElementById('meta-tracking').textContent = trackingUrl;
+  document.getElementById('meta-tracking').href = trackingUrl;
+  document.getElementById('meta-dest').textContent = url;
+  document.getElementById('meta-date').textContent = new Date().toLocaleString();
+
+  document.getElementById('input-label').value = '';
+  showToast('QR Code generated successfully');
+}
+
+function downloadQR() {
+  const canvas = document.getElementById('qr-canvas');
+  if (!canvas.width) return;
+  
+  const link = document.createElement('a');
+  link.download = `qrcode-${currentQRId}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+  showToast('QR Code downloaded');
+}
+
+function copyTrackingUrl() {
+  const text = document.getElementById('meta-tracking').textContent;
+  navigator.clipboard.writeText(text).then(() => showToast('Tracking URL copied to clipboard'));
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  QR LIST & DETAILS
+// ═══════════════════════════════════════════════════════════════
+
+function renderQRList() {
+  const data = loadData();
+  const container = document.getElementById('qr-list-container');
+
+  if (!data.qrcodes.length) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="icon">📱</div>
+        <h3>No QR codes yet</h3>
+        <p>Create your first professional QR code to get started.</p>
+        <button class="btn btn-primary" style="margin-top:1.25rem" onclick="showPage('generate')">Create QR Code</button>
+      </div>
+    `;
+    return;
+  }
+
+  const scanCounts = {};
+  (data.scans || []).forEach(s => { scanCounts[s.qr_id] = (scanCounts[s.qr_id] || 0) + 1; });
+
+  container.innerHTML = `
+    <div class="qr-list-grid">
+      ${data.qrcodes.map(qr => {
+        const scans = scanCounts[qr.id] || 0;
+        return `
+          <div class="qr-list-item" onclick="openQRDetail('${qr.id}')">
+            <div class="thumb">
+              <canvas id="thumb-${qr.id}" width="60" height="60"></canvas>
+            </div>
+            <div class="info">
+              <div class="name">${escHtml(qr.label)}</div>
+              <div class="url">${escHtml(qr.url)}</div>
+              <div class="meta-row">
+                <span class="badge badge-green">${scans} scan${scans !== 1 ? 's' : ''}</span>
+                <span class="badge badge-purple">${timeAgo(qr.created_at)}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
+
+  setTimeout(() => {
+    data.qrcodes.forEach(qr => {
+      const canvas = document.getElementById('thumb-' + qr.id);
+      if (canvas) {
+        drawQRCode(canvas, qr.tracking_url, 60, qr.fill_color || '#1e2937', qr.back_color || '#ffffff');
+      }
+    });
+  }, 40);
+}
+
+function openQRDetail(qrId) {
+  const data = loadData();
+  const qr = data.qrcodes.find(q => q.id === qrId);
+  if (!qr) return;
+
+  const scans = (data.scans || []).filter(s => s.qr_id === qrId);
+
+  const deviceBreakdown = {};
+  scans.forEach(s => { deviceBreakdown[s.device_type || 'Unknown'] = (deviceBreakdown[s.device_type || 'Unknown'] || 0) + 1; });
+
+  const dailyBreakdown = {};
+  scans.forEach(s => {
+    if (s.scanned_at) {
+      const day = s.scanned_at.slice(0, 10);
+      dailyBreakdown[day] = (dailyBreakdown[day] || 0) + 1;
+    }
+  });
+
+  document.getElementById('modal-title').textContent = qr.label;
+  document.getElementById('modal-body').innerHTML = `
+    <div style="text-align:center;margin-bottom:1.75rem">
+      <canvas id="modal-qr-canvas" style="background:#fff;padding:18px;border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.1)"></canvas>
+    </div>
+    
+    <div style="margin-bottom:1.35rem">
+      <p style="color:var(--text-dim);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.7px;margin-bottom:0.35rem">Destination URL</p>
+      <p style="word-break:break-all;font-size:0.95rem;line-height:1.5">${escHtml(qr.url)}</p>
+    </div>
+    
+    <div style="margin-bottom:1.5rem">
+      <p style="color:var(--text-dim);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.7px;margin-bottom:0.35rem">Tracking URL</p>
+      <p style="word-break:break-all;font-size:0.95rem;color:var(--primary-light)">${escHtml(qr.tracking_url)}</p>
+    </div>
+    
+    <div style="display:flex;gap:0.6rem;margin-bottom:1.75rem;flex-wrap:wrap">
+      <span class="badge badge-green" style="font-size:0.85rem;padding:0.35rem 0.9rem">${scans.length} total scans</span>
+      <span class="badge badge-purple" style="font-size:0.85rem;padding:0.35rem 0.9rem">Created ${timeAgo(qr.created_at)}</span>
+      ${scans.length ? `<span class="badge badge-orange" style="font-size:0.85rem;padding:0.35rem 0.9rem">Last scan ${timeAgo(scans[0].scanned_at)}</span>` : ''}
+    </div>
+
+    ${Object.keys(deviceBreakdown).length ? `
+      <div style="margin-bottom:1.25rem">
+        <p style="color:var(--text-dim);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.7px;margin-bottom:0.5rem">Device Breakdown</p>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap">
+          ${Object.entries(deviceBreakdown).map(([d,c]) => `<span class="badge badge-purple">${d}: ${c}</span>`).join('')}
+        </div>
+      </div>` : ''}
+
+    ${Object.keys(dailyBreakdown).length ? `
+      <div style="margin-bottom:1.25rem">
+        <p style="color:var(--text-dim);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.7px;margin-bottom:0.5rem">Daily Activity</p>
+        <div style="display:flex;gap:0.4rem;flex-wrap:wrap;align-items:end">
+          ${Object.entries(dailyBreakdown).sort((a,b)=>a[0].localeCompare(b[0])).slice(-12).map(([day,count]) => {
+            const max = Math.max(...Object.values(dailyBreakdown));
+            const h = Math.max(10, (count / max) * 68);
+            return `<div style="text-align:center"><div style="height:${h}px;width:26px;background:linear-gradient(to top,var(--primary),var(--primary-light));border-radius:5px 5px 0 0;margin:0 auto"></div><div style="font-size:0.65rem;color:var(--text-dim);margin-top:4px">${day.slice(5)}</div><div style="font-size:0.72rem;font-weight:600">${count}</div></div>`;
+          }).join('')}
+        </div>
+      </div>` : ''}
+
+    ${scans.length ? `
+      <div style="margin-top:1rem">
+        <p style="color:var(--text-dim);font-size:0.75rem;text-transform:uppercase;letter-spacing:0.7px;margin-bottom:0.6rem">Recent Scans</p>
+        <div class="table-wrap" style="max-height:210px;overflow-y:auto">
+          <table>
+            <thead><tr><th>Time</th><th>Device</th><th>IP</th></tr></thead>
+            <tbody>
+              ${scans.slice(0, 12).map(s => `
+                <tr>
+                  <td style="white-space:nowrap;font-size:0.82rem">${new Date(s.scanned_at).toLocaleString()}</td>
+                  <td><span class="badge badge-purple">${escHtml(s.device_type || 'Unknown')}</span></td>
+                  <td style="color:var(--text-dim);font-size:0.82rem">${escHtml(s.ip || '—')}</td>
+                </tr>`).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>` : '<p style="color:var(--text-dim);font-size:0.9rem;margin-top:1.25rem">No scans recorded yet. Share the tracking URL to collect data.</p>'}
+
+    <div style="margin-top:2rem;display:flex;gap:0.65rem;flex-wrap:wrap">
+      <button class="btn btn-primary btn-sm" onclick="downloadSingleQR('${qrId}')">⬇ Download PNG</button>
+      <button class="btn btn-outline btn-sm" onclick="copyText('${qr.tracking_url}')">📋 Copy Tracking URL</button>
+      <button class="btn btn-sm" style="background:var(--danger);color:white" onclick="deleteQR('${qrId}')">🗑 Delete</button>
+    </div>
+  `;
+
+  setTimeout(() => {
+    const canvas = document.getElementById('modal-qr-canvas');
+    if (canvas) {
+      drawQRCode(canvas, qr.tracking_url, 190, qr.fill_color || '#1e2937', qr.back_color || '#ffffff');
+    }
+  }, 60);
+
+  document.getElementById('modal-overlay').classList.add('active');
+}
+
+function downloadSingleQR(qrId) {
+  const data = loadData();
+  const qr = data.qrcodes.find(q => q.id === qrId);
+  if (!qr) return;
+
+  const canvas = document.createElement('canvas');
+  drawQRCode(canvas, qr.tracking_url, 380, qr.fill_color || '#1e2937', qr.back_color || '#ffffff');
+
+  const link = document.createElement('a');
+  link.download = `qrcode-${qr.label.replace(/[^a-z0-9]/gi, '_')}.png`;
+  link.href = canvas.toDataURL('image/png');
+  link.click();
+  showToast('QR Code downloaded');
+}
+
+function deleteQR(qrId) {
+  if (!confirm('Delete this QR code and all associated scan data?')) return;
+  
+  const data = loadData();
+  data.qrcodes = data.qrcodes.filter(q => q.id !== qrId);
+  data.scans = (data.scans || []).filter(s => s.qr_id !== qrId);
+  saveData(data);
+  
+  closeModal();
+  renderQRList();
+  showToast('QR code deleted');
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('active');
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  ANALYTICS
+// ═══════════════════════════════════════════════════════════════
+
+function renderAnalytics() {
+  const data = loadData();
+  const scans = data.scans || [];
+  const qrcodes = data.qrcodes || [];
+
+  document.getElementById('stat-total-qr').textContent = qrcodes.length;
+  document.getElementById('stat-total-scans').textContent = scans.length;
+
+  const today = new Date().toISOString().slice(0, 10);
+  const todayScans = scans.filter(s => s.scanned_at && s.scanned_at.startsWith(today)).length;
+  document.getElementById('stat-today-scans').textContent = todayScans;
+
+  const uniqueDevices = new Set(scans.map(s => s.device_type || 'Unknown')).size;
+  document.getElementById('stat-devices').textContent = uniqueDevices;
+
+  // Daily chart
+  const daily = {};
+  scans.forEach(s => {
+    if (s.scanned_at) daily[s.scanned_at.slice(0, 10)] = (daily[s.scanned_at.slice(0, 10)] || 0) + 1;
+  });
+  const sortedDays = Object.keys(daily).sort();
+
+  if (dailyChart) dailyChart.destroy();
+  dailyChart = new Chart(document.getElementById('chart-daily'), {
+    type: 'bar',
+    data: {
+      labels: sortedDays.length ? sortedDays : ['No data'],
+      datasets: [{
+        label: 'Scans',
+        data: sortedDays.length ? sortedDays.map(d => daily[d]) : [0],
+        backgroundColor: 'rgba(107, 92, 230, 0.75)',
+        borderRadius: 6,
+        borderSkipped: false
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { color: '#64748b', maxTicksLimit: 9, font: { size: 11 } }, grid: { display: false } },
+        y: { ticks: { color: '#64748b', stepSize: 1, font: { size: 11 } }, grid: { color: 'rgba(255,255,255,0.06)' }, beginAtZero: true }
+      }
+    }
+  });
+
+  // Device chart
+  const devices = {};
+  scans.forEach(s => { devices[s.device_type || 'Unknown'] = (devices[s.device_type || 'Unknown'] || 0) + 1; });
+  const deviceLabels = Object.keys(devices);
+  const deviceData = Object.values(devices);
+  const deviceColors = ['#6b5ce6', '#10b981', '#ef4444', '#f59e0b', '#6366f1', '#ec4899'];
+
+  if (deviceChart) deviceChart.destroy();
+  deviceChart = new Chart(document.getElementById('chart-devices'), {
+    type: 'doughnut',
+    data: {
+      labels: deviceLabels.length ? deviceLabels : ['No data'],
+      datasets: [{
+        data: deviceData.length ? deviceData : [1],
+        backgroundColor: deviceData.length ? deviceLabels.map((_, i) => deviceColors[i % deviceColors.length]) : ['#25283a'],
+        borderWidth: 0,
+        hoverOffset: 12
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { color: '#64748b', padding: 16, font: { size: 12 } } }
+      },
+      cutout: '62%'
+    }
+  });
+
+  // Top QR codes
+  const topList = document.getElementById('top-qr-list');
+  if (!qrcodes.length) {
+    topList.innerHTML = `<div class="empty-state"><div class="icon">📊</div><h3>No analytics available</h3><p>Create QR codes and generate demo data to view insights.</p></div>`;
+  } else {
+    const scanCounts = {};
+    scans.forEach(s => { scanCounts[s.qr_id] = (scanCounts[s.qr_id] || 0) + 1; });
+    const ranked = qrcodes.map(q => ({ ...q, scanCount: scanCounts[q.id] || 0 })).sort((a, b) => b.scanCount - a.scanCount);
+
+    topList.innerHTML = `
+      <table>
+        <thead><tr><th>#</th><th>QR Code</th><th>Destination</th><th>Scans</th><th>Performance</th></tr></thead>
+        <tbody>
+          ${ranked.map((r, i) => {
+            const perf = r.scanCount > 12 ? '🔥 High' : r.scanCount > 4 ? '📈 Medium' : r.scanCount > 0 ? '🌱 Low' : '⏳ New';
+            return `
+              <tr>
+                <td style="font-weight:700;color:#64748b;font-size:1.05rem">${i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '#' + (i + 1)}</td>
+                <td><strong>${escHtml(r.label)}</strong><br><span style="font-size:0.78rem;color:#64748b">${timeAgo(r.created_at)}</span></td>
+                <td style="font-size:0.85rem;color:#64748b;max-width:220px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${escHtml(r.url)}</td>
+                <td><span class="badge badge-green" style="font-size:0.95rem;font-weight:700">${r.scanCount}</span></td>
+                <td>${perf}</td>
+              </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
+    `;
+  }
+
+  // Recent scans
+  const recentEl = document.getElementById('recent-scans');
+  const recentScans = scans.slice(-28).reverse();
+  
+  if (!recentScans.length) {
+    recentEl.innerHTML = `<div class="empty-state" style="padding:2.25rem"><p style="color:#64748b">No scans recorded yet. Click <strong>Generate Demo Data</strong> to populate analytics.</p></div>`;
+  } else {
+    const qrMap = {};
+    qrcodes.forEach(q => qrMap[q.id] = q.label);
+    recentEl.innerHTML = `
+      <table>
+        <thead><tr><th>Timestamp</th><th>QR Code</th><th>Device</th><th>IP Address</th><th>Location</th></tr></thead>
+        <tbody>
+          ${recentScans.map(s => `
+            <tr>
+              <td style="white-space:nowrap;font-size:0.85rem">${new Date(s.scanned_at).toLocaleString()}</td>
+              <td><strong style="font-size:0.9rem">${escHtml(qrMap[s.qr_id] || 'Unknown')}</strong></td>
+              <td><span class="badge badge-purple">${escHtml(s.device_type || 'Unknown')}</span></td>
+              <td style="color:#64748b;font-size:0.82rem;font-family:monospace">${escHtml(s.ip || '—')}</td>
+              <td style="color:#64748b;font-size:0.82rem">${escHtml(s.location || '—')}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+    `;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  DEMO DATA GENERATION (Professional "Test Data")
+// ═══════════════════════════════════════════════════════════════
+
+function simulateScans() {
+  const data = loadData();
+  if (!data.qrcodes.length) {
+    showToast('Please create at least one QR code first', true);
+    return;
+  }
+
+  const locations = ['New York, US', 'London, UK', 'Tokyo, JP', 'Berlin, DE', 'Sydney, AU', 'Toronto, CA', 'Paris, FR', 'Singapore'];
+  const userAgents = [
+    { type: 'Mobile', ua: 'iPhone' },
+    { type: 'Mobile', ua: 'Android' },
+    { type: 'Desktop', ua: 'Windows' },
+    { type: 'Desktop', ua: 'macOS' },
+    { type: 'Tablet', ua: 'iPad' },
+  ];
+
+  if (!data.scans) data.scans = [];
+
+  const count = Math.floor(Math.random() * 14) + 9;
+  const created = [];
+
+  for (let i = 0; i < count; i++) {
+    const randomQR = data.qrcodes[Math.floor(Math.random() * data.qrcodes.length)];
+    const hoursAgo = Math.floor(Math.random() * 192);
+    const scanTime = new Date(Date.now() - hoursAgo * 3600000 - Math.random() * 3600000);
+    const uaData = userAgents[Math.floor(Math.random() * userAgents.length)];
+
+    data.scans.push({
+      qr_id: randomQR.id,
+      scanned_at: scanTime.toISOString(),
+      ip: `${Math.floor(Math.random() * 200) + 20}.${Math.floor(Math.random() * 256)}.${Math.floor(Math.random() * 256)}.${Math.floor(Math.random() * 256)}`,
+      user_agent: uaData.ua,
+      device_type: uaData.type,
+      location: locations[Math.floor(Math.random() * locations.length)],
+    });
+
+    created.push(randomQR.label);
+  }
+
+  saveData(data);
+
+  const unique = [...new Set(created)].length;
+  showToast(`Generated ${count} realistic test scans across ${unique} QR codes`);
+
+  if (currentPage === 'mycodes') renderQRList();
+  if (currentPage === 'analytics') renderAnalytics();
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  UTILITIES
+// ═══════════════════════════════════════════════════════════════
+
+function escHtml(str) {
+  const div = document.createElement('div');
+  div.textContent = str || '';
+  return div.innerHTML;
+}
+
+function timeAgo(isoStr) {
+  if (!isoStr) return '';
+  const seconds = Math.floor((Date.now() - new Date(isoStr).getTime()) / 1000);
+  if (seconds < 60) return 'just now';
+  if (seconds < 3600) return Math.floor(seconds / 60) + 'm ago';
+  if (seconds < 86400) return Math.floor(seconds / 3600) + 'h ago';
+  if (seconds < 604800) return Math.floor(seconds / 86400) + 'd ago';
+  return new Date(isoStr).toLocaleDateString();
+}
+
+function showToast(msg, isError = false) {
+  const toast = document.getElementById('toast');
+  toast.innerHTML = isError ? `⚠️ ${msg}` : `✓ ${msg}`;
+  toast.className = 'toast show' + (isError ? ' error' : '');
+  setTimeout(() => toast.className = 'toast', 3200);
+}
+
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => showToast('Copied to clipboard'));
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  SCAN REDIRECT HANDLER (Professional Landing)
+// ═══════════════════════════════════════════════════════════════
+
+function handleScanRedirect() {
+  const hash = window.location.hash;
+  if (!hash.startsWith('#scan/')) return;
+
+  const qrId = hash.replace('#scan/', '');
+  const data = loadData();
+  const qr = data.qrcodes.find(q => q.id === qrId);
+
+  if (qr) {
+    if (!data.scans) data.scans = [];
+    data.scans.push({
+      qr_id: qrId,
+      scanned_at: new Date().toISOString(),
+      ip: 'simulated',
+      user_agent: navigator.userAgent,
+      device_type: /Mobi|Android|iPhone|iPad/.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
+      location: 'Browser',
+    });
+    saveData(data);
+
+    document.body.innerHTML = `
+      <div class="landing-wrapper">
+        <div class="landing-card">
+          <div style="margin-bottom:1.5rem">
+            <div style="width:64px;height:64px;background:linear-gradient(135deg,var(--primary),#4f46e5);border-radius:16px;margin:0 auto 1.25rem;display:flex;align-items:center;justify-content:center;font-size:2rem">✅</div>
+          </div>
+          
+          <h1>Scan Recorded</h1>
+          <p class="subtitle">Thank you. Your engagement has been tracked for <strong>${escHtml(qr.label)}</strong>.</p>
+          
+          <div class="dest-box">
+            <label>Destination</label>
+            <p>${escHtml(qr.url)}</p>
+          </div>
+          
+          <div class="ad-space">
+            [ Google AdSense Placeholder — Replace with your ad code ]
+          </div>
+          
+          <a href="${qr.url}" class="btn-proceed" id="proceed-btn">Continue to Destination →</a>
+          
+          <div class="footer">
+            Powered by <a href="${window.location.pathname}">QR Studio</a>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  INITIALIZATION
+// ═══════════════════════════════════════════════════════════════
+
+handleScanRedirect();
+checkAuth();
+</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a08ba4e71cb4ee07',t:'MTc4MDk2MTAwNA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body></html>
